@@ -1,11 +1,11 @@
 import React from 'react'
 
-function MyBooings() {
+function Navbar() {
   return (
     <div>
-      
+      <h1>navbar</h1>
     </div>
   )
 }
 
-export default MyBooings
+export default Navbar

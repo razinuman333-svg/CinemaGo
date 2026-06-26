@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Movies() {
+function Mybookings() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function Movies() {
   )
 }
 
-export default Movies
+export default Mybookings
