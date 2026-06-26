@@ -8,6 +8,7 @@ import SeatLayout from './pages/SeatLayout'
 import Mybookings from './pages/Mybookings'
 import Favorite from './pages/Favorite'
 import {Toaster} from 'react-hot-toast'
+import Footer from './components/Footer'
 
 function App() {
   const isAdminRoute=useLocation().pathname.startsWith('/admin')
@@ -24,6 +25,7 @@ function App() {
      <Route path='/favorite' element={<Favorite/>}/>
 
       </Routes> 
+      {!isAdminRoute && <Footer/>}
     </>
   )
 }
