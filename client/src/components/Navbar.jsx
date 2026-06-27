@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {Link} from 'react-router-dom'
 import assets from '../assets/assets'
-import {MenuIcon, SearchIcon, XIcon} from 'lucide-react'
+import {MenuIcon, SearchIcon, TicketPlus, XIcon} from 'lucide-react'
 import { useClerk, UserButton, useUser } from '@clerk/clerk-react'
 
 
@@ -39,7 +39,11 @@ function Navbar() {
       hover:bg-primary-dull transition rounded-full font-medium cursor-pointer'>Login</button>
 
       ) : (
-        <UserButton/>
+        <UserButton>
+          <UserButton.MenuItems>
+            <UserButton.Link href='/favorites' label='My Bookings' labelIcon={<TicketPlus width={15}/>}/>
+          </UserButton.MenuItems>
+        </UserButton>
       )
     }
       </div>
