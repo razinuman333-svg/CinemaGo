@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import Blur from './Blur'
 
 function Feautered() {
 
@@ -11,6 +12,8 @@ function Feautered() {
 
 
       <div className='relative flex items-center justify-between pt-20 pb-10'>
+
+        <Blur top='0' right='-80px'/>
 
       <p className='font-medium text-lg text-gray-300'>Now Showing</p>
 
