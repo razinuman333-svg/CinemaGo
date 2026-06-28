@@ -17,7 +17,7 @@ function Feautered() {
 
       <p className='font-medium text-lg text-gray-300'>Now Showing</p>
 
-      <button onClick={()=>navigate('/movies')} className='group flex items-center gap-2 text-sm text-gray-300'>
+      <button onClick={()=>navigate('/movies')} className='group flex items-center gap-2 text-sm text-gray-300 cursor-pointer'>
         View All
         <ArrowRight className='group-hover:translate-x-0.5 transition w-4.5 h-4.5'/>
       </button>
@@ -27,7 +27,11 @@ function Feautered() {
 
       <div></div>
 
-      <div></div>
+      <div className='flex justify-center mt-20'>
+        <button onClick={()=>{navigate('/movies'); scrollTo(0,0)}} className='px-10 py-3 text-sm bg-primary hover:bg-primary-dull transition
+         rounded-md font-medium cursor-pointer'>Show more</button>
+
+      </div>
 
 
     </div>

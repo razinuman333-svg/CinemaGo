@@ -23,10 +23,10 @@ function Navbar() {
 
         <XIcon onClick={()=>setIsOpen(false)} className='md:hidden absolute top-6 right-6 w-6 h-6 cursor-pointer'/> 
 
-        <Link  onClick={()=>{ setIsOpen(false), scrollTo(0,0)}} to='/' >Home</Link>
-        <Link  onClick={()=>{ setIsOpen(false), scrollTo(0,0)}} to='/movies' >Movies</Link>
-        <Link  onClick={()=>{ setIsOpen(false), scrollTo(0,0)}} to='/' >Theaters</Link>
-        <Link  onClick={()=>{ setIsOpen(false), scrollTo(0,0)}} to='/favorites' >Favorites</Link>
+        <Link  onClick={()=>{ setIsOpen(false); scrollTo(0,0)}} to='/' >Home</Link>
+        <Link  onClick={()=>{ setIsOpen(false); scrollTo(0,0)}} to='/movies' >Movies</Link>
+        <Link  onClick={()=>{ setIsOpen(false); scrollTo(0,0)}} to='/' >Theaters</Link>
+        <Link  onClick={()=>{ setIsOpen(false); scrollTo(0,0)}} to='/favorites' >Favorites</Link>
       </div>
 
 
