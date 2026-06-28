@@ -1,4 +1,4 @@
-import logo from './CinemaGo_logo.svg'
+import logo from './CinemaGo_logo.png'
 
 
 

@@ -41,7 +41,7 @@ function Navbar() {
       ) : (
         <UserButton>
           <UserButton.MenuItems>
-            <UserButton.Link href='/favorites' label='My Bookings' labelIcon={<TicketPlus width={15}/>}/>
+            <UserButton.Link href='/my-bookings' label='My Bookings' labelIcon={<TicketPlus width={15}/>}/>
           </UserButton.MenuItems>
         </UserButton>
       )
