@@ -10,12 +10,13 @@ function Feautered() {
     const navigate=useNavigate()
 
   return (
+
     <div className='px-6 md:px-16 lg:px-24 xl:px-44 overflow-hidden'>
 
 
-      <div className='relative flex items-center justify-between pt-20 pb-10'>
+      <div className='relative flex items-center justify-between pt-10 pb-10 '>
 
-        <Blur top='0' right='-80px'/>
+        <Blur top='0' right='-90px'/>
 
       <p className='font-medium text-lg text-gray-300'>Now Showing</p>
 
@@ -33,11 +34,20 @@ function Feautered() {
         ))}
       </div>
 
+
+
+
+
       <div className='flex justify-center mt-20'>
+
         <button onClick={()=>{navigate('/movies'); scrollTo(0,0)}} className='px-10 py-3 text-sm bg-primary hover:bg-primary-dull transition
          rounded-md font-medium cursor-pointer'>Show more</button>
 
       </div>
+
+
+
+
 
 
     </div>

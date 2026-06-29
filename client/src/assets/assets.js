@@ -28,6 +28,41 @@ export const dummyCastsData = [
   },
 ];
 
+export const dummyTrailers = [
+  {
+    image: "https://img.youtube.com/vi/YoHD9XEInc0/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=YoHD9XEInc0",
+  },
+  {
+    image: "https://img.youtube.com/vi/EXeTwQWrcwY/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=EXeTwQWrcwY",
+  },
+  {
+    image: "https://img.youtube.com/vi/zSWdZVtXT7E/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=zSWdZVtXT7E",
+  },
+  {
+    image: "https://img.youtube.com/vi/TcMBFSGVi1c/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=TcMBFSGVi1c",
+  },
+  {
+    image: "https://img.youtube.com/vi/vKQi3bBA1y8/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=vKQi3bBA1y8",
+  },
+  {
+    image: "https://img.youtube.com/vi/8hP9D6kZseM/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=8hP9D6kZseM",
+  },
+  {
+    image: "https://img.youtube.com/vi/JfVOs4VSpmA/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=JfVOs4VSpmA",
+  },
+  {
+    image: "https://img.youtube.com/vi/6ZfuNTqbHE8/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=6ZfuNTqbHE8",
+  },
+];
+
 export const dummyShowsData = [
   {
     _id: "1",
