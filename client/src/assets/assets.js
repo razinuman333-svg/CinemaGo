@@ -128,6 +128,50 @@ export const dummyShowsData = [
     vote_average: 8.2,
     runtime: 148,
   },
+    {
+    _id: "1",
+    id: 1,
+    title: "The Batman",
+    overview:
+      "Batman uncovers corruption in Gotham City while pursuing the Riddler.",
+    poster_path:
+      "https://image.tmdb.org/t/p/original/74xTEgt7R36Fpooo50r9T25onhq.jpg",
+    backdrop_path:
+      "https://image.tmdb.org/t/p/original/b0PlSFdDwbyK0cf5RxwDpaOJQvQ.jpg",
+    genres: [
+      { id: 28, name: "Action" },
+      { id: 80, name: "Crime" },
+      { id: 9648, name: "Mystery" },
+    ],
+    casts: dummyCastsData,
+    release_date: "2022-03-04",
+    original_language: "en",
+    tagline: "Unmask the truth.",
+    vote_average: 7.8,
+    runtime: 176,
+  },
+    {
+    _id: "1",
+    id: 1,
+    title: "The Batman",
+    overview:
+      "Batman uncovers corruption in Gotham City while pursuing the Riddler.",
+    poster_path:
+      "https://image.tmdb.org/t/p/original/74xTEgt7R36Fpooo50r9T25onhq.jpg",
+    backdrop_path:
+      "https://image.tmdb.org/t/p/original/b0PlSFdDwbyK0cf5RxwDpaOJQvQ.jpg",
+    genres: [
+      { id: 28, name: "Action" },
+      { id: 80, name: "Crime" },
+      { id: 9648, name: "Mystery" },
+    ],
+    casts: dummyCastsData,
+    release_date: "2022-03-04",
+    original_language: "en",
+    tagline: "Unmask the truth.",
+    vote_average: 7.8,
+    runtime: 176,
+  },
 ];
 
 export default assets;
