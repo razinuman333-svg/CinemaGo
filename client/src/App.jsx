@@ -22,7 +22,7 @@ function App() {
      <Route path='/movies/:id' element={<MovieDetails/>}/>
      <Route path='/movies/:id/:id' element={<SeatLayout/>}/>
      <Route path='/my-bookings' element={<Mybookings/>}/>
-     <Route path='/favorite' element={<Favorite/>}/>
+     <Route path='/favorites' element={<Favorite/>}/>
 
       </Routes> 
       {!isAdminRoute && <Footer/>}
