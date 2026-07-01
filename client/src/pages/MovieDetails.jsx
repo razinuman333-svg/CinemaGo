@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { dummyDateTimeData, dummyShowsData } from '../assets/assets'
 import Blur from '../components/Blur'
 import {Heart, PlayCircleIcon, PlayIcon, StarIcon} from 'lucide-react'
@@ -9,6 +9,7 @@ import MovieCard from '../components/MovieCard'
 
 function MovieDetails() {
 
+    const navigate=useNavigate()
     const {id} = useParams()
     const [show,setShow]=useState(null)
 
@@ -85,6 +86,11 @@ function MovieDetails() {
       {dummyShowsData.slice(0,4).map((movie,index)=>(
         <MovieCard key={index} movie={movie}/>
       ))}
+    </div>
+    <div className='flex justify-center mt-20'>
+      <button onClick={()=>navigate('/movies')} className='px-10 py-3 text-sm bg-primary hover:bg-primary-dull transition rounded-md font-medium 
+      cursor-pointer'>Show More</button>
+
     </div>
 
 </div>
