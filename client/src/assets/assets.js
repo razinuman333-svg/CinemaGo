@@ -1,9 +1,11 @@
 import logo from './CinemaGo_logo.png'
+import screen from './screen.png'
 
 
 
 const assets={
     logo,
+    screen
 }
 export const dummyCastsData = [
   {
