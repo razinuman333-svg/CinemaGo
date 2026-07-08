@@ -1,11 +1,13 @@
 import logo from './CinemaGo_logo.png'
 import screen from './screen.png'
+import profile from './profile.png'
 
 
 
 const assets={
     logo,
-    screen
+    screen,
+    profile
 }
 export const dummyCastsData = [
   {
