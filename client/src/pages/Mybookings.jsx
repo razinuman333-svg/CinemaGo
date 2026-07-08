@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { dummyBookingData } from '../assets/assets'
 import Loading from '../components/Loading'
 import Blur from '../components/Blur'
+import timeFormat from '../lib/timeFormat'
+import { dateFormat } from '../lib/dateFormat'
 
 function Mybookings() {
 
@@ -33,6 +35,8 @@ function Mybookings() {
             <img className='md:max-w-45 aspect-video h-auto object-cover object-bottom rounded' src={item.show.movie.poster_path}/>
             <div className='flex flex-col p-4'>
             <p>{item.show.movie.title}</p>
+            <p>{timeFormat(item.show.movie.runtime)}</p>
+            <p>{dateFormat(item.show.showDateTime)}</p>
             </div>
 
           </div>
