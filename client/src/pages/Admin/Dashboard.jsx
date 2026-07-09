@@ -1,8 +1,10 @@
-import { ChartLineIcon, CircleDollarSignIcon, PlayCircleIcon, UsersIcon } from 'lucide-react';
+import { ChartLineIcon, CircleDollarSignIcon, PlayCircleIcon, StarIcon, UsersIcon } from 'lucide-react';
 import React, { useEffect, useState } from 'react'
 import { dummyDashboardData } from '../../assets/assets';
 import Loading from '../../components/Loading';
 import Text from '../../components/Admin/Text';
+import Blur from '../../components/Blur';
+import { dateFormat } from '../../lib/dateFormat';
 
 function Dashboard() {
 
@@ -25,7 +27,7 @@ const dashboardCards = [
   },
   {
     title: "Total Revenue",
-    value: dashboardData.totalRevenue || "0",
+    value: currency + dashboardData.totalRevenue || "0",
     icon: CircleDollarSignIcon
   },
   {
@@ -52,6 +54,55 @@ useEffect(()=>{
   return !loading ? (
     <>
      <Text text1='Admin' text2='Dashboard'/>
+
+     <div className='flex flex-wrap gap-4 mt-6'>
+      <Blur top='-100px' left='0px'/>
+      <div className='flex flex-wrap gap-4 w-full'>
+        {dashboardCards.map((card,index)=>(
+          <div className='flex items-center justify-between px-4 py-3 bg-primary/10 border border-primary/20 rounded-md max-w-50
+          w-full' key={index}>
+            <div>
+              <h1 className='text-sm'>{card.title}</h1>
+              <p className='text-xl font-medium mt-1'>{card.value}</p>
+            </div>
+            <card.icon className='w-6 h-6'/>
+
+
+          </div>
+
+        ))}
+
+      </div>
+
+     </div>
+
+     <p className='font-medium text-lg mt-10'>Active Shows</p>
+     <div className='relative flex flex-wrap gap-6 mt-4 max-w-5xl'>
+      <Blur top='100px' left='-10%' />
+      {dashboardData.activeShows.map((show)=>(
+        <div className='w-55 rounded-lg overflow-hidden h-full pb-3 bg-primary/10 border border-primary/20 
+        hover:-translate-y-1 transition duration-300 ' key={show._id}>
+          <img className='h-60 w-full object-cover ' src={show.movie.poster_path}/>
+          <p className='font-medium p-2 truncate'>{show.movie.title}</p>
+          <div className='flex items-center justify-between px-2 '>
+ <p className='text-lg font-medium'>{currency}{show.showPrice}</p>
+
+     <p className='flex items-center gap-1 text-sm text-gray-400 mt-1 pr-1 '>
+      <StarIcon className='w-4 h-4 text-primary fill-primary'/>
+      {show.movie.vote_average.toFixed(1)}
+     </p>
+          </div>
+          <p className='px-2 pt-2 text-sm text-gray-500'>{dateFormat(show.showDateTime)}</p>
+         
+
+        </div>
+
+      ))}
+
+
+     </div>
+
+
     </>
   ) : (
     <Loading/>
