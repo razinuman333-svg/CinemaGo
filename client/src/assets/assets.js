@@ -271,5 +271,44 @@ export const dummyBookingData = [
     "isPaid": true
   }
 ];
+export const dummyDashboardData = {
+  totalBookings: 14,
+  totalRevenue: 1517,
+  totalUser: 5,
+
+  activeShows: [
+    {
+      _id: "1",
+
+      showPrice: 250,
+
+      showDateTime: "2026-07-10T18:30:00.000Z",
+
+      movie: {
+        title: "Inception",
+
+        poster_path: "https://image.tmdb.org/t/p/w500/example.jpg",
+
+        vote_average: 8.8
+      }
+    },
+
+    {
+      _id: "2",
+
+      showPrice: 300,
+
+      showDateTime: "2026-07-11T20:00:00.000Z",
+
+      movie: {
+        title: "Interstellar",
+
+        poster_path: "https://image.tmdb.org/t/p/w500/example2.jpg",
+
+        vote_average: 8.7
+      }
+    }
+  ]
+};
 
 export default assets;
