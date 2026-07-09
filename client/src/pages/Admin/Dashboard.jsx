@@ -55,9 +55,10 @@ useEffect(()=>{
     <>
      <Text text1='Admin' text2='Dashboard'/>
 
-     <div className='flex flex-wrap gap-4 mt-6'>
+     <div className='flex flex-wrap gap-4 mt-6 '>
+
       <Blur top='-100px' left='0px'/>
-      <div className='flex flex-wrap gap-4 w-full'>
+      <div className='flex flex-wrap gap-4 w-full '>
         {dashboardCards.map((card,index)=>(
           <div className='flex items-center justify-between px-4 py-3 bg-primary/10 border border-primary/20 rounded-md max-w-50
           w-full' key={index}>
@@ -66,12 +67,8 @@ useEffect(()=>{
               <p className='text-xl font-medium mt-1'>{card.value}</p>
             </div>
             <card.icon className='w-6 h-6'/>
-
-
           </div>
-
         ))}
-
       </div>
 
      </div>
@@ -79,9 +76,12 @@ useEffect(()=>{
      <p className='font-medium text-lg mt-10'>Active Shows</p>
      <div className='relative flex flex-wrap gap-6 mt-4 max-w-5xl'>
       <Blur top='100px' left='-10%' />
+
       {dashboardData.activeShows.map((show)=>(
+
         <div className='w-55 rounded-lg overflow-hidden h-full pb-3 bg-primary/10 border border-primary/20 
         hover:-translate-y-1 transition duration-300 ' key={show._id}>
+
           <img className='h-60 w-full object-cover ' src={show.movie.poster_path}/>
           <p className='font-medium p-2 truncate'>{show.movie.title}</p>
           <div className='flex items-center justify-between px-2 '>
