@@ -21,6 +21,16 @@ function ListShows() {
           C1: "user_3",
         },
       },
+       {
+        movie: dummyShowsData[1],
+        showDateTime: "2025-06-30T02:30:00.000Z",
+        showPrice: 59,
+        occupiedSeats: {
+          A1: "user_1",
+          B1: "user_2",
+          C1: "user_3",
+        },
+      },
     ])
 
     setLoading(false)
@@ -34,7 +44,7 @@ function ListShows() {
     <>
       <Text text1="List" text2="Shows" />
 
-      <div className="max-w-4xl mt-6 overflow-x-auto">
+      <div className=" max-w-4xl mt-6 overflow-x-auto">
         <table className="w-full border-collapse rounded-md overflow-hidden text-nowrap">
           <thead>
             <tr className='bg-primary/20 text-left text-white'>
