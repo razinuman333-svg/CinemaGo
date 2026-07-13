@@ -6,6 +6,7 @@ import { clerkMiddleware } from '@clerk/express'
 import { serve } from "inngest/express";
 
 import { inngest, functions } from "./inngest/index.js";
+import showRouter from './routes/showRoutes.js'
 
 
 const app = express()
@@ -29,6 +30,7 @@ app.use(
 
 // API routes
 app.get('/',(req,res)=>res.send('Numaneyy You Will Be SuccessFull'))
+app.use('/api/show',showRouter)
 
 
 
