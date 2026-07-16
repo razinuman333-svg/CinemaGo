@@ -5,6 +5,7 @@ import Text from '../../components/Admin/Text'
 import { CheckIcon, DeleteIcon, StarIcon } from 'lucide-react'
 import { kConverter } from '../../lib/kConverter'
 import { useAppContext } from '../../context/appContext'
+import toast from 'react-hot-toast'
 
 function AddShows() {
 
@@ -13,11 +14,11 @@ const {axios , getToken , user,image_base_url} = useAppContext()
 
   const currency = import.meta.env.VITE_CURRENCY
   const [nowPlayngMovies, setNowPlayingMovies] = useState([])
-  const [selectedMovies, setSelectedMovies] = useState()
-  const [dateTimeSelection, setDateTimeSelection] = useState([])
-  const [dateTimeInput, setDateTimeInput] = useState()
-  const [showPrice, setShowPrice] = useState()
-
+  const [selectedMovie, setSelectedMovie] = useState()
+  const [dateTimeSelection, setDateTimeSelection] = useState({})
+  const [dateTimeInput, setDateTimeInput] = useState('')
+  const [showPrice, setShowPrice] = useState('')
+  const [addingShow,setAddingShow] = useState(false)
 
 const fetchNowPlayingMovies = async () => {
   try {
@@ -66,6 +67,44 @@ const fetchNowPlayingMovies = async () => {
   }
 
 
+
+  const handleSubmit = async () => {
+  try {
+    setAddingShow(true)
+
+    if(!selectedMovie || Object.keys(dateTimeSelection).length === 0 || !showPrice){
+      return toast('Missing required fields');
+    }
+
+    const showsInput = Object.entries(dateTimeSelection).map(([date, time]) => ({date, time}));
+
+    const payload = {
+      movieId: selectedMovie,
+      showsInput,
+      showPrice: Number(showPrice)
+    }
+
+    const { data } = await axios.post('/api/show/add', payload, {headers: {
+      Authorization: `Bearer ${await getToken()}` }})
+
+    if(data.success){
+      toast.success(data.message)
+      setSelectedMovie(null)
+      setDateTimeSelection({})
+      setShowPrice("")
+    }else{
+      toast.error(data.message)
+    }
+  } catch (error) {
+    console.error("Submission error:", error);
+    toast.error('An error occurred. Please try again.')
+  }
+  setAddingShow(false)
+}
+
+
+
+
   useEffect(() => {
     if(user){
       fetchNowPlayingMovies()
@@ -85,7 +124,7 @@ const fetchNowPlayingMovies = async () => {
       <div className='overflow-x-auto pb-4'>
         <div className='group flex flex-wrap gap-4 mt-4 w-max'>
           {nowPlayngMovies.map((movie) => (
-            <div onClick={() => setSelectedMovies(movie.id)} className={`relative max-w-40 cursor-pointer group-hover:not-hover:opacity-40 hover:-translate-y-1
+            <div onClick={() => setSelectedMovie(movie.id)} className={`relative max-w-40 cursor-pointer group-hover:not-hover:opacity-40 hover:-translate-y-1
          transition duration-300`} key={movie.id}>
               <div className='relative rounded-lg overflow-hidden'>
                 <img className='w-full object-cover brightness-90' src={image_base_url + movie.poster_path} />
@@ -102,7 +141,7 @@ const fetchNowPlayingMovies = async () => {
                 </div>
 
               </div>
-              {selectedMovies === movie.id && (
+              {selectedMovie === movie.id && (
                 <div className='absolute top-2 right-2 flex items-center justify-center bg-primary h-6 w-6 rounded'>
                   <CheckIcon strokeWidth={2.5} className='w-4 h-4 text-white ' />
 
@@ -193,7 +232,7 @@ const fetchNowPlayingMovies = async () => {
           </ul>
         </div>
       )}
-      <button className='bg-primary text-white px-8 py-2 mt-6 rounded  hover:bg-primary/90 transition-all cursor-pointer'>
+      <button onClick={handleSubmit} disabled={addingShow} className='bg-primary text-white px-8 py-2 mt-6 rounded  hover:bg-primary/90 transition-all cursor-pointer'>
         Add Show
       </button>
     </>

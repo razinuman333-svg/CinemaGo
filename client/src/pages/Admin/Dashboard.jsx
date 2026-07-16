@@ -5,10 +5,12 @@ import Loading from '../../components/Loading';
 import Text from '../../components/Admin/Text';
 import Blur from '../../components/Blur';
 import { dateFormat } from '../../lib/dateFormat';
+import { useAppContext } from '../../context/appContext';
 
 function Dashboard() {
 
   const currency=import.meta.env.VITE_CURRENCY
+  const {axios , getToken , user,image_base_url} = useAppContext()
 
   const [dashboardData, setDashboardData] = useState({
   totalBookings: 0,
@@ -42,14 +44,25 @@ const dashboardCards = [
   }
 ];
 
-const fetchDashboardData = () =>{
-  setDashboardData(dummyDashboardData)
-  setLoading(false)
-}
+const fetchDashboardData = async () => {
+  try {
+    const { data } = await axios.get("/api/admin/dashboard", {headers: {
+      Authorization: `Bearer ${await getToken()}`}})
+    if (data.success) {
+      setDashboardData(data.dashboardData)
+      setLoading(false)
+    }else{
+      toast.error(data.message)
+    }
+  } catch (error) {
+    toast.error("Error fetching dashboard data:", error)
+  }
+};
 
 useEffect(()=>{
+  if(user)
      fetchDashboardData()
-},[])
+},[user])
 
   return !loading ? (
     <>
