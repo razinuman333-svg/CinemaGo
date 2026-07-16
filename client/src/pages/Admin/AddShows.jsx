@@ -8,7 +8,7 @@ import { useAppContext } from '../../context/appContext'
 
 function AddShows() {
 
-const {axios , getToken , user} = useAppContext()
+const {axios , getToken , user,image_base_url} = useAppContext()
 
 
   const currency = import.meta.env.VITE_CURRENCY
@@ -67,8 +67,10 @@ const fetchNowPlayingMovies = async () => {
 
 
   useEffect(() => {
-    fetchNowPlayingMovies()
-  }, [])
+    if(user){
+      fetchNowPlayingMovies()
+    }
+  }, [user])
 
 
 
@@ -86,7 +88,7 @@ const fetchNowPlayingMovies = async () => {
             <div onClick={() => setSelectedMovies(movie.id)} className={`relative max-w-40 cursor-pointer group-hover:not-hover:opacity-40 hover:-translate-y-1
          transition duration-300`} key={movie.id}>
               <div className='relative rounded-lg overflow-hidden'>
-                <img className='w-full object-cover brightness-90' src={movie.poster_path} />
+                <img className='w-full object-cover brightness-90' src={image_base_url + movie.poster_path} />
                 <div className='text-sm flex items-center justify-between p-2 bg-black/70 w-full absolute bottom-0 left-0'>
                   <p className='flex items-center gap-1 text-gray-400'>
                     <StarIcon className='w-4 h-4 text-primary fill-primary' />
