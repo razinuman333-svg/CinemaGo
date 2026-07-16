@@ -95,7 +95,7 @@ useEffect(()=>{
         <div className='w-55 rounded-lg overflow-hidden h-full pb-3 bg-primary/10 border border-primary/20 
         hover:-translate-y-1 transition duration-300 ' key={show._id}>
 
-          <img className='h-60 w-full object-cover ' src={show.movie.poster_path}/>
+          <img className='h-60 w-full object-cover ' src={image_base_url + show.movie.poster_path}/>
           <p className='font-medium p-2 truncate'>{show.movie.title}</p>
           <div className='flex items-center justify-between px-2 '>
  <p className='text-lg font-medium'>{currency}{show.showPrice}</p>
