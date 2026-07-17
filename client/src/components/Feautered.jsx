@@ -2,12 +2,13 @@ import { ArrowRight } from 'lucide-react'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Blur from './Blur'
-import { dummyShowsData } from '../assets/assets'
 import MovieCard from './MovieCard'
+import { useAppContext } from '../context/appContext'
 
 function Feautered() {
 
     const navigate=useNavigate()
+    const {shows} = useAppContext()
 
   return (
 
@@ -29,7 +30,7 @@ function Feautered() {
      
 
       <div className='flex flex-wrap max-sm:justify-center gap-8 mt-8'>
-        {dummyShowsData.slice(0,3).map((show,index)=>(
+        {shows.slice(0,4).map((show,index)=>(
           <MovieCard key={index} movie={show}/>
         ))}
       </div>
