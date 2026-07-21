@@ -14,7 +14,7 @@ function SeatLayout() {
   const navigate=useNavigate()
   const { id, date } = useParams()
   const [show, setShow] = useState()
-  const [selectedTime,setSelectedTime]=useState()
+  const [selectedTime,setSelectedTime]=useState('')
   const [selectedSeats,setSelectedSeats]=useState([])
   const groupRows=[ ["A",'B'], ['C','D'],['E','F'],['G','H'],['I','J']]
   const [occupiedSeats,setOccupiedSeats] = useState([])
@@ -118,7 +118,7 @@ const bookTickets = async () => {
 
 
   useEffect(() => {
-    findShow()
+    getShow()
   }, [])
 
   useEffect(()=>{
